@@ -2,7 +2,7 @@ Task: Make a tool to perform the extrinsic calibration of the radar and lidar ( 
 
 The radar has no elevation so z component is not reliable and should be ignored, that makes the problem simpler as we need just one angle in the rotation matrix.
 
-In the test data you have the left front camera, lidar and front left camera. The camera is not needed, it is just for reference reprojection. 
+In the test data you have the left front camera, lidar and front left camera (1jpeg, 2csv files). Data with same number is from almost same timestamp.  The camera is not needed for the calibration, it is just for reference reprojection. Basically , what you have are a set of measurements with a corner reflector and the lidar, you could match them and get the task done. We use the corner reflect as that reflection is strong and we ca see the point and also we see the corner reflector in the lidar.
 
 The lidar and radar csv files can be read with : 
 

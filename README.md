@@ -22,7 +22,9 @@ and a rotation matrix (if helpful):
                         [np.sin(th),  np.cos(th), 0.0],
                         [0.0,         0.0,        1.0]])
 
-You can reproject on camera and see if results are ok. To read the calibration file use :
+You can reproject on camera and see if results are ok. To read the calibration files use :
+
+    Camera intrinsics like in open cv (https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html) 
 
     calib = np.load(calib_cam_npz_file_repo)
     K = calib["camera_matrix"]

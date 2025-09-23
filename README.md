@@ -33,5 +33,5 @@ You can reproject on camera and see if results are ok. To read the calibration f
     R_lidar_cam = calib["R"]
 
 
-USE AI to not spend ages on it !
+USE AI to not spend ages on it ! Use whatever you like to code and send us your github link. Write 3-4 lines to explain what you have done.
 

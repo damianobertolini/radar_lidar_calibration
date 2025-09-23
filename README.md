@@ -58,7 +58,8 @@ After you find the radar to lidar extrinsics you could find the radar to camera 
             points_cam, np.zeros((3, 1)), np.zeros((3, 1)), K, dist_coeffs
         )
         return proj_points.reshape(-1, 2)
-    
+
+     radar_points_cam = (R_radar_cam @ radar_points.T).T + t_radar_cam
      proj_points = project_to_image(radar_points_cam, K, dist_coeffs)
     
 

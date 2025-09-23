@@ -66,5 +66,5 @@ After you find the radar to lidar extrinsics you could find the radar to camera 
     
 
 USE AI to not spend ages on it ! Use whatever you like to code and send us your github link. Write 3-4 lines to explain what you have done.
-Hint : All you need to do is find corespondences (the corner reflector in various sensing modalities) and find the best fit transformation with your favorite solver. Quick results are more fancy than elaborate GUIs. Things are not going to be perfect, recall radar has no elevation measurement.  
+Hint : All you need to do is find corespondences (the corner reflector in various sensing modalities) and find the best fit transformation with your favorite solver. Each set of (radar,lidar) will give you one corespondence. Quick results are more fancy than elaborate GUIs. Things are not going to be perfect, recall radar has no elevation measurement.  
 

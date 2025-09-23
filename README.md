@@ -50,6 +50,16 @@ After you find the radar to lidar extrinsics you could find the radar to camera 
 
     R_radar_cam, t_radar_cam = compose_transform(R_radar_lidar, t_radar_lidar, R_lidar_cam, t_lidar_cam)
   
+ Then project with code similar to this for instance :
+
+     def project_to_image(points_cam, K, dist_coeffs):
+        """Project 3D points in camera frame onto image plane."""
+        proj_points, _ = cv2.projectPoints(
+            points_cam, np.zeros((3, 1)), np.zeros((3, 1)), K, dist_coeffs
+        )
+        return proj_points.reshape(-1, 2)
+    
+     proj_points = project_to_image(radar_points_cam, K, dist_coeffs)
     
 
 USE AI to not spend ages on it ! Use whatever you like to code and send us your github link. Write 3-4 lines to explain what you have done.

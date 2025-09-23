@@ -13,7 +13,7 @@ The lidar and radar csv files can be read with :
 
 You can use as initial guess the translation : 
 
-    array([ 2.856,  0.635, -1.524]) 
+    t = array([ 2.856,  0.635, -1.524]) 
 
 and a rotation matrix (if helpful):
 
@@ -21,6 +21,8 @@ and a rotation matrix (if helpful):
         R = np.array([[np.cos(th), -np.sin(th), 0.0],
                         [np.sin(th),  np.cos(th), 0.0],
                         [0.0,         0.0,        1.0]])
+
+What you need to find is basically the true **t** and the angle **th**.
 
 You can reproject on camera and see if results are ok. To read the calibration files use :
 
@@ -64,5 +66,5 @@ After you find the radar to lidar extrinsics you could find the radar to camera 
     
 
 USE AI to not spend ages on it ! Use whatever you like to code and send us your github link. Write 3-4 lines to explain what you have done.
-Hint : All you need to do is find corespondences (the corner reflector in various sensing modalities) and find the best fit transformation with your favorite solver. Quick results are more fancy than elaborate GUIs.  
+Hint : All you need to do is find corespondences (the corner reflector in various sensing modalities) and find the best fit transformation with your favorite solver. Quick results are more fancy than elaborate GUIs. Things are not going to be perfect, recall radar has no elevation measurement.  
 

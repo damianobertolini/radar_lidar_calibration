@@ -4,6 +4,8 @@ The radar has no elevation so z component is not reliable and should be ignored,
 
 In the test data you have the left front camera, lidar and front left camera (1jpeg, 2csv files). Data with same number is from almost same timestamp.  The camera is not needed for the calibration, it is just for reference reprojection. Basically , what you have are a set of measurements with a corner reflector and the lidar, you could match them and get the task done. We use the corner reflect as that reflection is strong and we ca see the point and also we see the corner reflector in the lidar.
 
+screenshot.jpg shows a top view of the lidar and radar points projected on the ground ( blue lidar, red radar ).
+
 The lidar and radar csv files can be read with : 
 
     df = pd.read_csv(path)
@@ -34,4 +36,5 @@ You can reproject on camera and see if results are ok. To read the calibration f
 
 
 USE AI to not spend ages on it ! Use whatever you like to code and send us your github link. Write 3-4 lines to explain what you have done.
+
 

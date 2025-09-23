@@ -24,18 +24,34 @@ and a rotation matrix (if helpful):
 
 You can reproject on camera and see if results are ok. To read the calibration files use :
 
-    Camera intrinsics like in open cv (https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html) 
+    Camera intrinsics like in open cv (https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html) , camera matrix (K) and distortion coeffcients : 
 
     calib = np.load(calib_cam_npz_file_repo)
     K = calib["camera_matrix"]
     dist_coeffs = calib["dist_coeffs"]
 
-    and lidar to camera calibration :
+    and lidar to camera extrinsic calibration (translation t and rotation R):
 
     calib = np.load(calib_lidar2cam_file_npz_repo)
     t_lidar_cam = calib["t"]
     R_lidar_cam = calib["R"]
 
+After you find the radar to lidar extrinsics you could find the radar to camera like this :
+
+  R_radar_cam, t_radar_cam = compose_transform(
+        R_radar_lidar, t_radar_lidar, R_lidar_cam, t_lidar_cam
+    )
+    
+    def compose_transform(R_ab, t_ab, R_bc, t_bc):
+        """
+        Compose two transforms:
+          frame_a -> frame_b -> frame_c
+        to get frame_a -> frame_c
+        """
+        R_ac = R_bc @ R_ab
+        t_ac = R_bc @ t_ab + t_bc
+        return R_ac, t_ac
+    
 
 USE AI to not spend ages on it ! Use whatever you like to code and send us your github link. Write 3-4 lines to explain what you have done.
 

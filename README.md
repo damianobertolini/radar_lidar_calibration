@@ -37,11 +37,7 @@ You can reproject on camera and see if results are ok. To read the calibration f
     R_lidar_cam = calib["R"]
 
 After you find the radar to lidar extrinsics you could find the radar to camera like this :
-
-  R_radar_cam, t_radar_cam = compose_transform(
-        R_radar_lidar, t_radar_lidar, R_lidar_cam, t_lidar_cam
-    )
-    
+ 
     def compose_transform(R_ab, t_ab, R_bc, t_bc):
         """
         Compose two transforms:
@@ -51,6 +47,9 @@ After you find the radar to lidar extrinsics you could find the radar to camera 
         R_ac = R_bc @ R_ab
         t_ac = R_bc @ t_ab + t_bc
         return R_ac, t_ac
+
+    R_radar_cam, t_radar_cam = compose_transform(R_radar_lidar, t_radar_lidar, R_lidar_cam, t_lidar_cam)
+  
     
 
 USE AI to not spend ages on it ! Use whatever you like to code and send us your github link. Write 3-4 lines to explain what you have done.

@@ -214,30 +214,6 @@ Where:
 - **Accuracy**: Sub-centimeter precision for well-calibrated sensors
 - **Robustness**: Handles noise and outliers through filtering
 
-## 🛠️ Customization
-
-### Adding New Algorithms
-To add a new calibration algorithm:
-
-1. Implement the function in `solve_calibration.py`:
-   ```python
-   def solve_se2_your_algorithm(P_r_xy, P_l_xy):
-       # Your implementation
-       return theta, R2, txy
-   ```
-
-2. Add it to the algorithm selection:
-   ```python
-   elif algorithm == 'your_algorithm':
-       theta, R2, txy = solve_se2_your_algorithm(radar_points[:, :2], lidar_centroids[:, :2])
-   ```
-
-### Modifying Parameters
-Adjust filtering and correspondence parameters in `solve_calibration.py`:
-```python
-z_min, z_max = -1.0, 2.0  # Z-coordinate bounds
-r_gate = 1.0              # Correspondence radius
-```
 
 ## 🐛 Troubleshooting
 

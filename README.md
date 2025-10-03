@@ -124,7 +124,7 @@ chmod +x run_docker.sh
 ### 1. Data Processing Pipeline
 
 1. **Data Loading**: Load lidar and radar point clouds from CSV files
-2. **Filtering**: Filter lidar points by z-coordinate (-1 to 2m) and range (3-60m)
+2. **Filtering**: Filter lidar points by z-coordinate (-1 to 2.5m) and range (2-30m)
 3. **Correspondence Finding**: Use KD-Tree to find corner reflector correspondences
 4. **Transformation Solving**: Apply Kabsch algorithm to find optimal transformation
 5. **Validation**: Project results to camera images for visual verification
@@ -186,8 +186,8 @@ The system uses initial transformation estimates:
 - **Rotation**: 50 degrees around Z-axis
 
 ### Filtering Parameters
-- **Z-coordinate bounds**: -1.0 to 2.0 meters
-- **Range bounds**: 3.0 to 60.0 meters
+- **Z-coordinate bounds**: -1.0 to 2.5 meters
+- **Range bounds**: 2.0 to 30.0 meters
 - **Correspondence radius**: 1.0 meters
 
 ## 🔍 Algorithm Details

@@ -45,7 +45,7 @@ def find_corner_reflector_correspondence(lidar_file, radar_file, script_dir, th,
     
     # Filter lidar points by z and range
     rL = np.linalg.norm(lidar_points[:, :2], axis=1)
-    mask0 = (lidar_points[:, 2] > z_min) & (lidar_points[:, 2] < z_max) & (rL > 3.0) & (rL < 60.0)
+    mask0 = (lidar_points[:, 2] > z_min) & (lidar_points[:, 2] < z_max) & (rL > 2.0) & (rL < 30.0)
     lidar_filtered = lidar_points[mask0]
     
     print(f"  Filtered lidar points: {len(lidar_points)} -> {len(lidar_filtered)}")
@@ -370,7 +370,7 @@ def solve_calibration(test_data_folder, initial_angle_deg=50, initial_translatio
     radar_points = []
     correspondences = []
     
-    z_min, z_max = -1.0, 2.0
+    z_min, z_max = -1.0, 2.5
     r_gate = 1.0
     
     for lidar_file, radar_file in pairs:

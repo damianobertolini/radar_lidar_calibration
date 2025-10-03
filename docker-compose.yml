@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  radar-lidar-calibration:
+    build: .
+    container_name: radar-lidar-calibration
+    volumes:
+      # Mount output directories to persist results
+      - ./calibration_output:/app/calibration_output
+      - ./point_matches_reflector:/app/point_matches_reflector
+      # Mount test data (optional, if you want to modify data)
+      - ./test_data:/app/test_data:ro
+    environment:
+      - PYTHONPATH=/app
+      - DISPLAY=${DISPLAY:-:0}
+    # For GUI applications (optional)
+    network_mode: host
+    # Alternative: use X11 forwarding for GUI
+    # volumes:
+    #   - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    # environment:
+    #   - DISPLAY=$DISPLAY
+    # command: python quick_view.py
+
+  # Alternative service for interactive viewer
+  calibration-viewer:
+    build: .
+    container_name: calibration-viewer
+    volumes:
+      - ./calibration_output:/app/calibration_output:ro
+      - ./point_matches_reflector:/app/point_matches_reflector:ro
+      - ./test_data:/app/test_data:ro
+    environment:
+      - PYTHONPATH=/app
+      - DISPLAY=${DISPLAY:-:0}
+    network_mode: host
+    command: python quick_view.py
+    profiles:
+      - viewer

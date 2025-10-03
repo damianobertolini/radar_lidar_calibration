@@ -206,7 +206,7 @@ def get_matrices_init(radar_position):
 if __name__ == "__main__":
     
     radar_selected = "FL"  # Change to "FR", "FC", "RL", or "RR" as needed
-    FOLDER = "/Users/robertkrutsch/Downloads/test_data/"
+    FOLDER = "/Users/damiano/Desktop/temp/calib_test/test_data/"
 
     R_ref,t_ref = get_matrices_init(radar_selected)
 
